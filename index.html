@@ -28,15 +28,17 @@
             display: flex;
             gap: 10px;
         }
-        .button-container a {
+        .button-container a, .top-right-container a {
             text-decoration: none;
             color: white;
-            background-color: #007BFF;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 1.2em;
             text-align: center;
             transition: background-color 0.3s ease;
+        }
+        .button-container a {
+            background-color: #007BFF;
         }
         .button-container a:hover {
             background-color: #0056b3;
@@ -54,8 +56,10 @@
             font-size: 1em;
         }
         .top-right-container a {
-            font-size: 0.8em;
-            padding: 5px 10px;
+            background-color: #28a745;
+        }
+        .top-right-container a:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -63,8 +67,9 @@
     <h1>JAILX365</h1>
     <h2>Your tagline goes here</h2>
     <div class="button-container">
-        <a href="page1.html">Page 1</a>
-        <a href="page2.html">Page 2</a>
+        <a href="page1.html">🎨 2D Art</a>
+        <a href="page2.html">🎵 Sound</a>
+        <a href="page3.html">🎮 Games</a>
     </div>
     <div class="top-right-container">
         <p>Additional Text</p>
