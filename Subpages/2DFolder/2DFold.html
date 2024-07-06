@@ -3,48 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery</title>
-    <style>
-        /* Optional: Style for the grid */
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-            padding: 10px;
-        }
-        .image-grid img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-    </style>
+    <title>Folder Listing</title>
 </head>
 <body>
-    <div class="image-grid" id="imageGrid">
-        <!-- Images will be dynamically added here -->
-    </div>
+    <h1>Files and Folders in 2DLibrary</h1>
+    <ul id="fileList"></ul>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const githubPagesUrl = "https://jailx365.github.io/Subpages/2DFolder/2DLibrary/"; // GitHub Pages URL
-            const imageGrid = document.getElementById("imageGrid");
+            const folderUrl = "https://jailx365.github.io/2DLibrary/"; // Replace with your GitHub Pages folder URL
+            const fileList = document.getElementById("fileList");
 
-            fetch(githubPagesUrl)
+            fetch(folderUrl)
                 .then(response => response.text())
                 .then(text => {
                     const parser = new DOMParser();
                     const htmlDoc = parser.parseFromString(text, 'text/html');
-                    const images = Array.from(htmlDoc.querySelectorAll('a'))
-                        .filter(a => /\.(jpe?g|png|gif)$/i.test(a.href))
-                        .map(a => {
-                            const img = document.createElement('img');
-                            img.src = `${githubPagesUrl}${a.href.split('/').pop()}`;
-                            img.alt = a.href.split('/').pop();
-                            return img;
-                        });
+                    const files = Array.from(htmlDoc.querySelectorAll('a'))
+                        .map(a => a.href);
 
-                    images.forEach(img => imageGrid.appendChild(img));
-                });
+                    files.forEach(file => {
+                        const li = document.createElement('li');
+                        const link = document.createElement('a');
+                        link.href = file;
+                        link.textContent = file.split('/').pop(); // Display filename or folder name
+                        li.appendChild(link);
+                        fileList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Error fetching folder contents:', error));
         });
     </script>
 </body>
