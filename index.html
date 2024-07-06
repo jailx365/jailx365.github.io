@@ -13,14 +13,19 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            position: relative;
         }
         h1 {
             font-size: 4em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.5em;
             margin-bottom: 20px;
+            color: #666;
         }
         .button-container {
             display: flex;
-            flex-direction: column;
             gap: 10px;
         }
         .button-container a {
@@ -36,13 +41,34 @@
         .button-container a:hover {
             background-color: #0056b3;
         }
+        .top-right-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .top-right-container p {
+            margin: 0;
+            font-size: 1em;
+        }
+        .top-right-container a {
+            font-size: 0.8em;
+            padding: 5px 10px;
+        }
     </style>
 </head>
 <body>
     <h1>JAILX365</h1>
+    <h2>Your tagline goes here</h2>
     <div class="button-container">
         <a href="page1.html">Page 1</a>
         <a href="page2.html">Page 2</a>
+    </div>
+    <div class="top-right-container">
+        <p>Additional Text</p>
+        <a href="anotherpage.html">Another Button</a>
     </div>
 </body>
 </html>
