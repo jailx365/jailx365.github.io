@@ -112,3 +112,11 @@ h2 {
 .top-right-container a:hover {
     background-color: #218838;
 }
+p{
+    color: white; /* White text color */
+    text-shadow: -1px -1px 0 black,  
+                 1px -1px 0 black,
+                -1px  1px 0 black,
+                 1px  1px 0 black; /* Black outline */
+}
+
